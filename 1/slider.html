@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="slider">
+    <div class="slider control" onclick="back()"><</div>
+<ul id="slides" class="slider">
+    <li class="slide showing"></li>
+    <li class="slide"></li>
+    <li class="slide"></li>
+    <li class="slide"></li>
+    <li class="slide"></li>
+</ul>
+    <div class="slider control" onclick="next()">></div>
+</div>
+</body>
+<script>
+    class slider {
+        constructor(slides){
+            this.SLIDES = slides;
+        }
+        next=()=> {
+            SLIDES[current].className = 'slide';
+            current = (current+1)%SLIDES.length;
+            SLIDES[current].className = 'slide showing';}
+        back=()=> {
+            SLIDES[current].className = 'slide';
+            if (current == 0) current = SLIDES.length - 1;
+            else
+                current = (current - 1) % SLIDES.length;
+            SLIDES[current].className = 'slide showing';
+        }
+    }
+
+
+    const SLIDES = document.querySelectorAll('#slides .slide');
+    let current = 0;
+    let next=()=> {
+        SLIDES[current].className = 'slide';
+        current = (current+1)%SLIDES.length;
+        SLIDES[current].className = 'slide showing';}
+    let back=()=> {
+        SLIDES[current].className = 'slide';
+        if (current == 0) current = SLIDES.length - 1;
+        else
+            current = (current - 1) % SLIDES.length;
+        SLIDES[current].className = 'slide showing';
+    }
+
+
+</script>
+
+
+</html>
